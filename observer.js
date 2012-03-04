@@ -31,15 +31,13 @@ var Twitter = (function(){
             return true;
         },
     
-        unsubscribe: function (token) {
-            for (var m in userCollection) {
-                if (userCollection[m]) {
-                    for (var i = 0, j = userCollection[m].length; i < j; i++) {
-                        if (userCollection[m][i].token === token) {
-                            userCollection[m].splice(i, 1);
-                            return token;
-                        }
-                    }
+        unsubscribe: function (user, whoToUnFollow) {
+            var followers = userCollection[whoToUnFollow];
+            var len = followers ? followers.length : 0;
+                
+            for(var i = 0; i < len; i++){
+                if(followers[i] === user){
+                    followers.splice(i, 1);
                 }
             }
             return false;
@@ -84,27 +82,31 @@ jank.Follow("ODevRel");
 
 //time line
 setTimeout(function(){
-    oDevRel.Write('New Opera Next snapshot includes length precision fixes/dpcm,dppx,dpi support...');
+    oDevRel.Write('New Opera Next snapshot includes...');
 }, 5000);
 
 setTimeout(function(){
-    chromiumDev.Write('Chrome DevTools has a slew of new ways to navigate your JavaScript...');
-}, 10000);
+    chromiumDev.Write('Chrome DevTools has a slew of...');
+}, 15000);
 
 
 setTimeout(function(){
     ie.Write('Get all of the latest info on #IE10 in the #MSDN');
-}, 15000);
-
-setTimeout(function(){
-    oDevRel.Write('Opera Mobile 12: WebGL, camera access, #html5 parser+more...');
-}, 20000);
-
-
-setTimeout(function(){
-    wilq_.Write('RT@ChromiumDev Chrome DevTools has a slew of new ways to navigate your JavaScript...');
 }, 25000);
 
-//setTimeout(function(){
-//    Twitter.unsubscribe( testSubscription );
-//}, 0);
+setTimeout(function(){
+    oDevRel.Write('Opera Mobile 12: WebGL, camera access...');
+}, 35000);
+
+
+setTimeout(function(){
+    wilq_.Write('RT@ChromiumDev Chrome DevTools has a slew of...');
+}, 45000);
+
+setTimeout(function(){
+    jank.UnFollow('wilq_');
+}, 55000);
+
+setTimeout(function(){
+    wilq_.Write('meet.js - Wrocław!');
+}, 65000);
