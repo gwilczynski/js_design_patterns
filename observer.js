@@ -40,6 +40,7 @@ var Twitter = (function(){
                     followers.splice(i, 1);
                 }
             }
+            
             return false;
         }
     };
@@ -50,6 +51,7 @@ var User = function(name, nick){
     this.nick = nick;
 };
 
+//User definition
 User.prototype.Follow = function(whoToFollow){
     Twitter.subscribe(this, whoToFollow);
 };
@@ -71,10 +73,11 @@ User.prototype.Write = function(tweet){
 var wilq_ = new User("Grzegorz Wilczynski", "wilq_");
 wilq_.Follow("ODevRel");
 wilq_.Follow("ChromiumDev");
+wilq_.Follow("jank");
 
-var oDevRel = new User("Opera Dev Relations", "ODevRel");
-var chromiumDev = new User("Chrome Dev Relations", "ChromiumDev");
-var ie = new User("Internet Explorer", "IE");
+var oDevRel = new User("Opera", "ODevRel");
+var chromiumDev = new User("Chrome", "ChromiumDev");
+var ie = new User("InternetExplorer", "IE");
 
 var jank = new User("Jan Kowalski", "jank");
 jank.Follow("wilq_");
@@ -100,13 +103,13 @@ setTimeout(function(){
 
 
 setTimeout(function(){
-    wilq_.Write('RT@ChromiumDev Chrome DevTools has a slew of...');
+    jank.Write('bla bla bla');
 }, 45000);
 
 setTimeout(function(){
-    jank.UnFollow('wilq_');
+    wilq_.UnFollow('jank');
 }, 55000);
 
 setTimeout(function(){
-    wilq_.Write('meet.js - Wrocław!');
+    jank.Write('meet.js - Wrocław!');
 }, 65000);
