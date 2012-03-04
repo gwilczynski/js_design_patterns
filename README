@@ -1,6 +1,6 @@
 ------------------------------------------------------------
 JS Design Patterns prepared for meet.js - Wrocław 05.03.2012
-------------------------------------------------------------:wq
+------------------------------------------------------------
 
 The Observer Pattern based on Pub/Sub implementation by Addy Osmani:
 http://jsfiddle.net/LxPrq/
