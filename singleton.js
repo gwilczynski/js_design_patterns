@@ -93,4 +93,4 @@ var Singleton4 = (function(){
 	};
 })();
 
-Singleton4.Instatance.publicMethod();
+Singleton4.Instatance().publicMethod();
